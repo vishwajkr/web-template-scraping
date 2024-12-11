@@ -1,76 +1,121 @@
-# web-template-scraping
+# Website Template Scraper
 
-Website Scraper
+This project provides a tool to scrape website templates for learning or development purposes. The scraper allows developers to extract HTML, CSS, and JavaScript files from public websites to understand their structure and use them as inspiration for personal projects.
 
-This Python script scrapes an entire website, including its pages and assets (CSS, JavaScript, images, fonts), and saves them locally in a structured folder format. It uses the requests library for making HTTP requests and BeautifulSoup for parsing HTML.
+## Features
 
-Features
+- Extracts complete HTML, CSS, and JavaScript files from websites.
+- Supports dynamic content handling using Selenium for JavaScript-heavy websites.
+- Saves assets like images, fonts, and scripts locally.
+- User-friendly and customizable for specific scraping needs.
+- Outputs files in a structured folder format for easy reuse.
 
-Downloads the main HTML files of the website.
+## Prerequisites
 
-Saves static assets such as CSS, JavaScript, images, and fonts.
+Before you begin, ensure you have the following installed:
 
-Maintains folder structure for better organization.
+- Python 3.8 or above
+- Google Chrome (or any compatible browser)
+- ChromeDriver (for Selenium, if needed for dynamic websites)
 
-Recursively scrapes internal links within the same domain.
+## Installation
 
-Requirements
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/website-template-scraper.git
+   cd website-template-scraper
+   ```
 
-Python 3.x
+2. Install the required Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Required Python libraries:
+3. (Optional) Set up a virtual environment for the project:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
 
-requests
+## Usage
 
-beautifulsoup4
+### Basic Scraping
 
-Installation
+1. Update the `config.json` file with the target website URL and other settings:
+   ```json
+   {
+       "url": "https://example.com",
+       "output_dir": "output",
+       "include_assets": true
+   }
+   ```
 
-Clone or download this repository.
+2. Run the scraper:
+   ```bash
+   python scraper.py
+   ```
 
-Install the required libraries using pip:
+### Dynamic Content Handling
 
-pip install requests beautifulsoup4
+For websites with heavy JavaScript rendering, enable Selenium:
 
-Usage
+1. Install Selenium:
+   ```bash
+   pip install selenium
+   ```
 
-Run the script:
+2. Update the `config.json` file:
+   ```json
+   {
+       "use_selenium": true,
+       "browser": "chrome"
+   }
+   ```
 
-python scraper.py
+3. Ensure `chromedriver` is installed and in your PATH.
 
-Enter the URL of the website you want to scrape when prompted.
+## Output
 
-The scraped content will be saved in a folder named after the domain of the website (e.g., example_com).
+The scraped website files will be saved in the `output` directory (or the directory specified in the configuration). The directory structure will look like this:
 
-File Structure
+```
+output/
+├── index.html
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+```
 
-The downloaded files will be organized as follows:
+## Legal Disclaimer
 
-<output_folder>/
-    index.html (or other main HTML files)
-    static/
-        css/
-        js/
-        images/
-        fonts/
+This tool is intended for educational purposes and personal use only. Scraping websites without permission may violate their terms of service or applicable laws. Always seek permission before scraping content from any website.
 
-How It Works
+## Contributions
 
-Main Functionality: The script starts by scraping the base URL and saving its HTML file.
+Contributions are welcome! If you'd like to contribute:
 
-Assets Downloading: It scans for static assets like CSS, JS, images, and fonts in the HTML and downloads them into their respective folders.
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes and push the branch:
+   ```bash
+   git push origin feature-name
+   ```
+4. Open a pull request.
 
-Internal Links: It identifies internal links (within the same domain) and recursively scrapes them.
+## License
 
-Notes
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-Ensure you have the necessary permissions to scrape a website before using this tool.
+## Contact
 
-The script respects the website’s internal links and does not scrape external domains.
+For any questions or issues, feel free to contact:
 
-Large websites may take significant time to scrape.
+- Email: jaivishwa05@gmail.com
+- GitHub: [jaivishwaj](https://github.com/jaivishwaj)
 
-License
-
-This project is open-source and free to use under the MIT License.
-
+---
+Happy coding! 🎉
